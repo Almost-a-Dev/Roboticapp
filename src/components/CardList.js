@@ -4,7 +4,7 @@ import Robot from './Robot';
 const CardList = ({robots}) => {
     return (
         robots.map((robot, idx) => {
-            return <Robot id={robots[idx].id} name={robots[idx].name} email={robots[idx].email} />
+            return <Robot key={idx} id={robots[idx].id} name={robots[idx].name} email={robots[idx].email} />
         })
     );
 }

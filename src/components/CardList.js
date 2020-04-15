@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import Robot from './Robot';
 
-
-class CardList extends Component {
-    
-    render() { 
-        return (  );
-    }
+const CardList = ({robots}) => {
+    return (
+        robots.map((robot, idx) => {
+            return <Robot id={robots[idx].id} name={robots[idx].name} email={robots[idx].email} />
+        })
+    );
 }
  
 export default CardList;

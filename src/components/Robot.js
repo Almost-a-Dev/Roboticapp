@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Robot.css'
+
 class Robot extends Component {
     render() {
         const { id, name, email } = this.props;
         return (
-            <div className='RoboCard'>
+            <div className='tc grow bg-light-green br3 pa3 ma2 dib bw2 shadow-5'>
                 <img src={`https://robohash.org/${id}?200x200`} alt={`${name} Robot`}/>
                 <h2>{name}</h2>
                 <p>{email}</p>

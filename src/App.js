@@ -3,31 +3,38 @@ import CardList from './components/CardList';
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
 import InputForm from "./components/shared/InputForm";
-import { robots } from "./robots";
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      robots: robots,
+      robots: [],
       searchTerm: ''
     }
   }
 
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(r => r.json())
+      .then(u => this.setState({ robots: u }));
+  }
+
   inputChange = (event) => {
-    console.log(event.target.value);
+    this.setState({ searchTerm: event.target.value });
   }
 
   render() {
-    return (
+    const filterR = this.state.robots.filter(robot => robot.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
+      return (
         <div className="tc">
           <Header />
-          <InputForm inputChange={this.inputChange}/>
-          <CardList robots={robots} />  
+          <InputForm inputChange={this.inputChange} />
+          <CardList robots={filterR} />
           <Footer />
         </div>
-    );
+      );
+
   }
 }
 

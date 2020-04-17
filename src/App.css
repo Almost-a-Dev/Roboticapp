@@ -1,3 +1,11 @@
-.App {
+@font-face {
+    font-family: 'Frozen Hollow Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Frozen Hollow Regular'), url('FrozenHollow.woff') format('woff');
+}
 
+h1 {
+    font-family: 'Frozen Hollow Regular';
+    color: darkred;
 }

@@ -4,6 +4,7 @@ import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
 import InputForm from "./components/shared/InputForm";
 import './App.css';
+import ChildrenContainer from "./components/shared/ChildrenContainer";
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,9 @@ class App extends Component {
         <div className="tc">
           <Header />
           <InputForm inputChange={this.inputChange} />
-          <CardList robots={filterR} />
+          <ChildrenContainer>
+            <CardList robots={filterR} />
+          </ChildrenContainer>
           <Footer />
         </div>
       );
